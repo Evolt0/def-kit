@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package book;
+
+// 包含id的请求
+message BookRequest {
+  int32 id = 1;
+}
+
+// 包含名称的响应消息
+message BookResponse {
+  string name = 1;
+}
+
+// 定义根据id获取名称的服务
+service BookFun{
+  rpc GetBookInfoByID(BookRequest)returns(BookResponse){}
+}
