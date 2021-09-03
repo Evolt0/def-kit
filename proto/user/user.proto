@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package User;
+
+message CreateReq{
+  // 用户名称
+  string UserName = 1;
+  // 手机
+  string Mobile = 2;
+  // 邮箱
+  string Email = 3;
+  // 用户简介
+  string UserDesc = 4;
+}
+
+message CreateResp{
+  Resp resp = 1;
+}
+
+message Resp{
+  int64 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+service CreateFun{
+  rpc Create(CreateReq) returns (CreateResp){};
+}
